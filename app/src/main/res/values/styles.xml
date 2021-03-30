@@ -1,0 +1,59 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Messaggi.Theme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme" parent="Messaggi.Theme"/>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+    <!-- FirebaseUI -->
+    <style name="BlueTheme" parent="FirebaseUI">
+        <item name="colorPrimary">@color/blue_500</item>
+        <item name="colorPrimaryDark">@color/blue_700</item>
+        <item name="colorAccent">@color/green_a700</item>
+        <item name="colorControlNormal">@color/blue_500</item>
+        <item name="colorControlActivated">@color/lime_700</item>
+        <item name="colorControlHighlight">@color/blue_a200</item>
+        <item name="android:windowBackground">@color/blue_50</item>
+    </style>
+
+    <!-- DialogFragment -->
+    <style name="DialogFragmentTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <!--buttons color-->
+        <item name="colorAccent">@color/colorAccent</item>
+        <!--dialog background-->
+        <item name="android:windowBackground">@drawable/background_dialog</item>
+    </style>
+
+    <style name="DialogFragmentTheme.FullScreen">
+        <!--dialog background-->
+        <item name="android:windowBackground">@drawable/background_dialog_full_screen</item>
+    </style>
+
+    <!-- TextView -->
+    <style name="TextViewItemUser">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:maxLines">1</item>
+    </style>
+    <style name="TextViewItemUser.Small">
+        <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
+    </style>
+    <style name="TextViewItemUser.Medium">
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+    </style>
+    <style name="TextViewItemUser.Large">
+        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
+    </style>
+</resources>

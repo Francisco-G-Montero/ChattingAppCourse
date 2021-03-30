@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="activity_horizontal_margin">32dp</dimen>
+
+    <dimen name="etMessage_height">160dp</dimen>
+
+    <dimen name="margin_horizontal_chat">32dp</dimen>
+    <dimen name="margin_horizontal_profile">128dp</dimen>
+</resources>

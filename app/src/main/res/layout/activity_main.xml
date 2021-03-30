@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".mainModule.view.MainActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:theme="@style/Theme.Texting.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/Theme.Texting.PopupOverlay">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ivProfile"
+                android:layout_width="@dimen/common_notify_size"
+                android:layout_height="@dimen/common_notify_size"
+                android:src="@drawable/ic_emoticon_happy"
+                app:civ_border_color="@color/blue_100"
+                app:civ_circle_background_color="@android:color/white"/>
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <include android:id="@+id/contentMain" layout="@layout/content_main"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:tint="@android:color/white"
+        android:src="@drawable/ic_baseline_add_24"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/action_logout"
+        android:title="@string/main_menu_action_singoff"
+        android:orderInCategory="10"/>
+
+    <item android:id="@+id/action_profile"
+        android:title="@string/profile_title"
+        android:orderInCategory="20"/>
+
+    <item android:id="@+id/action_about"
+        android:title="@string/main_menu_about"
+        android:orderInCategory="30"/>
+</menu>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="about_title_textSize">36sp</dimen>
+    <dimen name="about_vertical_paddingTop">8dp</dimen>
+
+    <dimen name="activity_horizontal_margin">8dp</dimen>
+
+    <dimen name="background_dialog_radius">4dp</dimen>
+
+    <dimen name="button_minWidth">88dp</dimen>
+
+    <dimen name="cardview_radius">2dp</dimen>
+
+    <dimen name="common_border_img">1dp</dimen>
+    <dimen name="common_notify_size">24dp</dimen>
+    <dimen name="common_padding_small">4dp</dimen>
+
+    <dimen name="chat_margin_min">1dp</dimen>
+    <dimen name="chat_margin_max_horizontal">48dp</dimen>
+    <dimen name="chat_margin_max_top">8dp</dimen>
+    <dimen name="chat_padding_image">8dp</dimen>
+    <dimen name="chat_size_img_preview">80dp</dimen>
+    <dimen name="chat_size_image">160dp</dimen>
+    <dimen name="chat_size_imageDialog">96dp</dimen>
+    <dimen name="chat_zoom_padding_vertical">8dp</dimen>
+
+    <dimen name="contact_image_size">48dp</dimen>
+
+    <dimen name="etMessage_height">96dp</dimen>
+
+    <dimen name="fab_margin">16dp</dimen>
+
+    <dimen name="login_message_textSize">28sp</dimen>
+
+    <dimen name="margin_background_et">4dp</dimen>
+    <dimen name="margin_horizontal_chat">8dp</dimen>
+    <dimen name="margin_horizontal_profile">48dp</dimen>
+    <dimen name="margin_none">0dp</dimen>
+
+    <dimen name="padding_dialog">24dp</dimen>
+    <dimen name="padding_item_content">8dp</dimen>
+    <dimen name="padding_item_button">8dp</dimen>
+    <dimen name="padding_horizontal_form">48dp</dimen>
+    <dimen name="padding_message_chat">4dp</dimen>
+    <dimen name="padding_vertical_imgProfile">16dp</dimen>
+
+    <dimen name="profile_size_img">192dp</dimen>
+
+    <dimen name="request_max_height">180dp</dimen>
+    <dimen name="background_chat_radius">24dp</dimen>
+    <dimen name="common_padding_etMessage">12dp</dimen>
+</resources>

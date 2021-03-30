@@ -1,0 +1,251 @@
+{
+  "project_info": {
+    "project_number": "550805858296",
+    "firebase_url": "https://hola-firebase-e82f6.firebaseio.com",
+    "project_id": "hola-firebase-e82f6",
+    "storage_bucket": "hola-firebase-e82f6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:550805858296:android:c217e4683ca05783f3180d",
+        "android_client_info": {
+          "package_name": "com.alain.cursos.misfotografias"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "550805858296-609hunc5pj19l4iqi3f0ltejpshd00bo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpWi6a3qC59ZIbtHy2ElOFmdziQ5WK04s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "550805858296-609hunc5pj19l4iqi3f0ltejpshd00bo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:550805858296:android:c545151e8aedf13ff3180d",
+        "android_client_info": {
+          "package_name": "com.frommetoyou.holafirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "550805858296-609hunc5pj19l4iqi3f0ltejpshd00bo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpWi6a3qC59ZIbtHy2ElOFmdziQ5WK04s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "550805858296-609hunc5pj19l4iqi3f0ltejpshd00bo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:550805858296:android:8d3998bb2caedad4f3180d",
+        "android_client_info": {
+          "package_name": "com.frommetoyou.inventario"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "550805858296-609hunc5pj19l4iqi3f0ltejpshd00bo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpWi6a3qC59ZIbtHy2ElOFmdziQ5WK04s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "550805858296-609hunc5pj19l4iqi3f0ltejpshd00bo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:550805858296:android:12a280b347d16624f3180d",
+        "android_client_info": {
+          "package_name": "com.frommetoyou.menudecomidas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "550805858296-609hunc5pj19l4iqi3f0ltejpshd00bo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpWi6a3qC59ZIbtHy2ElOFmdziQ5WK04s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "550805858296-609hunc5pj19l4iqi3f0ltejpshd00bo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:550805858296:android:634694bf266a09d8f3180d",
+        "android_client_info": {
+          "package_name": "com.frommetoyou.multilogin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "550805858296-vequrc4o0lb24nl9dastlla6r5p8sboe.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.frommetoyou.multilogin",
+            "certificate_hash": "b74fa6e3955a3d9fd27e2d770350e7cdbafd2c2e"
+          }
+        },
+        {
+          "client_id": "550805858296-609hunc5pj19l4iqi3f0ltejpshd00bo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpWi6a3qC59ZIbtHy2ElOFmdziQ5WK04s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "550805858296-609hunc5pj19l4iqi3f0ltejpshd00bo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:550805858296:android:d216f1eec4730b59f3180d",
+        "android_client_info": {
+          "package_name": "com.frommetoyou.ofertas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "550805858296-609hunc5pj19l4iqi3f0ltejpshd00bo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpWi6a3qC59ZIbtHy2ElOFmdziQ5WK04s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "550805858296-609hunc5pj19l4iqi3f0ltejpshd00bo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:550805858296:android:bd5de49cc257d8e4f3180d",
+        "android_client_info": {
+          "package_name": "com.frommetoyou.soportetecnico"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "550805858296-609hunc5pj19l4iqi3f0ltejpshd00bo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpWi6a3qC59ZIbtHy2ElOFmdziQ5WK04s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "550805858296-609hunc5pj19l4iqi3f0ltejpshd00bo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:550805858296:android:702519900681fd6bf3180d",
+        "android_client_info": {
+          "package_name": "com.frommetoyou.texting"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "550805858296-609hunc5pj19l4iqi3f0ltejpshd00bo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpWi6a3qC59ZIbtHy2ElOFmdziQ5WK04s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "550805858296-609hunc5pj19l4iqi3f0ltejpshd00bo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingStart="@dimen/padding_dialog"
+    android:paddingEnd="@dimen/padding_dialog">
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/ivDialog"
+        android:layout_width="@dimen/chat_size_imageDialog"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        app:civ_border_width="@dimen/common_border_img"
+        app:civ_border_color="@color/blue_a100"/>
+    <TextView
+        android:id="@+id/tvMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toStartOf="@+id/ivDialog"
+        android:layout_centerVertical="true"
+        android:textAppearance="?android:attr/textAppearanceMedium"/>
+</RelativeLayout>
