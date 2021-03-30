@@ -9,7 +9,7 @@ In this project im using different cloud services and other tools like:
 -Firebase Storage
 
 -Firebase Authentication
-
+---------------------------
 -MVP architecture
 
 -EventBus
