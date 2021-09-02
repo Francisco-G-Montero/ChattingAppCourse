@@ -7,4 +7,5 @@ public interface AddView {
     void hideProgress();
     void friendAdded();
     void friendNotAdded();
+    void showRequestExists(int resMessage);
 }

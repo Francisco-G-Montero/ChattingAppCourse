@@ -16,6 +16,7 @@ import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
+import com.bumptech.glide.util.Util;
 import com.frommetoyou.texting.chatModule.ChatPresenter;
 import com.frommetoyou.texting.chatModule.ChatPresenterClass;
 import com.frommetoyou.texting.chatModule.view.adapters.ChatAdapter;
@@ -25,6 +26,7 @@ import com.frommetoyou.texting.common.pojo.Message;
 import com.frommetoyou.texting.common.pojo.User;
 import com.frommetoyou.texting.common.utils.UtilsCommon;
 import com.frommetoyou.texting.common.utils.UtilsImage;
+import com.frommetoyou.texting.common.utils.UtilsNetwork;
 import com.frommetoyou.texting.databinding.ActivityChatBinding;
 import com.frommetoyou.texting.mainModule.view.MainActivity;
 import com.frommetoyou.texting.profileModule.view.ProfileActivity;
@@ -79,7 +81,10 @@ public class ChatActivity extends AppCompatActivity implements OnItemClickListen
     @Override
     protected void onResume() {
         super.onResume();
-        mPresenter.onResume();
+        if(UtilsNetwork.isOnline(this)){
+            mPresenter.onResume();
+        }else
+            UtilsCommon.showSnackbar(binding.getRoot(),R.string.common_message_noInternet, Snackbar.LENGTH_LONG);
     }
 
     @Override
