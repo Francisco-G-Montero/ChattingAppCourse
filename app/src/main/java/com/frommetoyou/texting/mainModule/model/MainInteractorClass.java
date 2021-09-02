@@ -2,6 +2,7 @@ package com.frommetoyou.texting.mainModule.model;
 
 import com.frommetoyou.texting.common.Constants;
 import com.frommetoyou.texting.common.model.BasicEventCallback;
+import com.frommetoyou.texting.common.model.dataAccess.FirebaseCloudMessagingAPI;
 import com.frommetoyou.texting.common.pojo.User;
 import com.frommetoyou.texting.mainModule.events.MainEvent;
 import com.frommetoyou.texting.mainModule.model.dataAccess.Authentication;
@@ -14,10 +15,14 @@ public class MainInteractorClass implements MainInteractor {
     private RealtimeDatabase mDatabase;
     private Authentication mAuthentication;
     private User mMyUser = null;
+    //notifications
+    private FirebaseCloudMessagingAPI mCloudMessagingAPI;
 
     public MainInteractorClass() {
         mDatabase = new RealtimeDatabase();
         mAuthentication = new Authentication();
+        //notifications
+        mCloudMessagingAPI = FirebaseCloudMessagingAPI.getInstance();
     }
 
     @Override
@@ -80,6 +85,7 @@ public class MainInteractorClass implements MainInteractor {
 
     @Override
     public void signOff() {
+        mCloudMessagingAPI.unsubscribeToMyTopic(getCurrentUser().getEmail());
         mAuthentication.signOff();
     }
 

@@ -2,11 +2,14 @@ package com.frommetoyou.texting.chatModule.model;
 
 import android.app.Activity;
 import android.net.Uri;
+import android.util.Log;
 
 import com.frommetoyou.texting.chatModule.events.ChatEvent;
+import com.frommetoyou.texting.chatModule.model.dataAccess.NotificationRS;
 import com.frommetoyou.texting.chatModule.model.dataAccess.RealtimeDatabase;
 import com.frommetoyou.texting.chatModule.model.dataAccess.Storage;
 import com.frommetoyou.texting.common.Constants;
+import com.frommetoyou.texting.common.model.EventErrorTypeListener;
 import com.frommetoyou.texting.common.model.StorageUploadImageCallback;
 import com.frommetoyou.texting.common.model.dataAccess.FirebaseAuthenticationAPI;
 import com.frommetoyou.texting.common.pojo.Message;
@@ -18,6 +21,8 @@ public class ChatInteractorClass implements ChatInteractor {
     private RealtimeDatabase mDatabase;
     private FirebaseAuthenticationAPI mAuthenticationAPI;
     private Storage mStorage;
+    //notifications
+    private NotificationRS mNotification;
 
     private User mMyUser;
     private String mFriendUid;
@@ -30,6 +35,8 @@ public class ChatInteractorClass implements ChatInteractor {
         mDatabase = new RealtimeDatabase();
         mAuthenticationAPI = FirebaseAuthenticationAPI.getInstance();
         mStorage = new Storage();
+        //notifications
+        mNotification = new NotificationRS();
     }
 
     private User getCurrentUser() {
@@ -109,6 +116,25 @@ public class ChatInteractorClass implements ChatInteractor {
                 if (!mUidConnectedFriend.equals(getCurrentUser().getUid())) {
                     mDatabase.sumUnseenMessaages(getCurrentUser().getUid(), mFriendUid);
                     // TODO: 26/3/2021 notifications
+                    if (mLastConnectionFriend != Constants.ONLINE_VALUE){
+                        Log.v("NOTIFTF","ENVIO");
+                        mNotification.sendNotification(
+                                getCurrentUser().getUsername(),
+                                message,
+                                mFriendEmail,
+                                getCurrentUser().getUid(),
+                                getCurrentUser().getEmail(),
+                                getCurrentUser().getUriProfile(),
+                                new EventErrorTypeListener() {
+                                    @Override
+                                    public void onError(int typeEvent, int resMessage) {
+                                        Log.v("NOTIFTF","ERROR");
+
+                                        postEvent(typeEvent, resMessage);
+                                    }
+                                }
+                        );
+                    }
                 }
             }
         });

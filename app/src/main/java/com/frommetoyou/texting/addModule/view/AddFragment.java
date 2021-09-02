@@ -123,6 +123,11 @@ public class AddFragment extends DialogFragment implements DialogInterface.OnSho
     public void friendNotAdded() {
         binding.etEmail.setText(R.string.addFriend_error_message);
         binding.etEmail.requestFocus();
+    }
 
+    @Override
+    public void showRequestExists(int resMessage) {
+        binding.etEmail.setText(resMessage);
+        binding.etEmail.requestFocus();
     }
 }

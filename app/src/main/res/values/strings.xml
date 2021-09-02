@@ -75,4 +75,12 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_chat">ChatActivity</string>
     <string name="chat_status_last_connection">Última conexión: %s</string>
+    <string name="common_error_process_data">Errores internos, disculpe las molestias</string>
+    <string name="common_error_volley">Error de comunicación con el servidor, intentelo nuevamente</string>
+    <string name="chat_error_method_doesnt_exists">Imposible notificar al usuario. Consulte al administrador</string>
+    <string name="main_tutorial_message">Con este boton puedes agregar amigos por medio de email. \n Luego espera a que acepten la solicitud de amistad.</string>
+    <string name="main_tutorial_ok">Entiendo.</string>
+    <string name="main_tutorial_fabAdd">main_fabAdd_v01</string>
+    <string name="addFriend_error_doesnt_exists">No existe ningún usuario con este email</string>
+    <string name="addFriend_message_request_exists">La solicitud ya habia sido enviada.</string>
 </resources>

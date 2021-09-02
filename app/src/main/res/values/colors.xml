@@ -99,6 +99,7 @@
     <color name="gray_700">#616161</color>
     <color name="gray_800">#424242</color>
     <color name="gray_900">#212121</color>
+    <color name="gray_t900">#cc212121</color>
 
     <!-- BlueGray -->
     <color name="blue_gray_50">#ECEFF1</color>

@@ -6,6 +6,7 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -24,7 +25,9 @@ import com.frommetoyou.texting.mainModule.view.adapters.UserAdapter;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import uk.co.deanwild.materialshowcaseview.MaterialShowcaseView;
 
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -59,6 +62,28 @@ public class MainActivity extends AppCompatActivity implements OnItemUserClickLi
         configToolbar();
         configAdapters();
         configRecyclerView();
+        configTutorial();
+    }
+
+    private void configTutorial() {
+        new MaterialShowcaseView.Builder(this)
+                .setTarget(binding.fab)
+                .setTargetTouchable(true)
+                .setTitleText(R.string.app_name)
+                .setTitleTextColor(R.color.colorAccent)
+                .setContentText(R.string.main_tutorial_message)
+                .setContentTextColor(ContextCompat.getColor(this, R.color.blue_50))
+                .setDismissText(R.string.main_tutorial_ok)
+                .setDismissStyle(Typeface.create(Typeface.SANS_SERIF, Typeface.BOLD_ITALIC))
+                .setDismissTextColor(ContextCompat.getColor(this, android.R.color.white))
+                .setMaskColour(ContextCompat.getColor(this, R.color.gray_t900))
+                .singleUse(getString(R.string.main_tutorial_fabAdd))
+                .setDelay(2000)
+                .setFadeDuration(600) //duracion de la animacion
+                .setDismissOnTargetTouch(true)
+                .setDismissOnTouch(false)
+                .show();
+
     }
 
     @Override

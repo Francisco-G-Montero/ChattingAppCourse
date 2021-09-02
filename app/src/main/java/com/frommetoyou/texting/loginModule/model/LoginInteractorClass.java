@@ -3,6 +3,7 @@ package com.frommetoyou.texting.loginModule.model;
 import android.util.Log;
 
 import com.frommetoyou.texting.common.model.EventErrorTypeListener;
+import com.frommetoyou.texting.common.model.dataAccess.FirebaseCloudMessagingAPI;
 import com.frommetoyou.texting.common.pojo.User;
 import com.frommetoyou.texting.loginModule.events.LoginEvent;
 import com.frommetoyou.texting.loginModule.model.dataAccess.Authentication;
@@ -15,10 +16,14 @@ import org.greenrobot.eventbus.EventBus;
 public class LoginInteractorClass implements LoginInteractor {
     private Authentication mAuthentication;
     private RealtimeDatabase mDatabase;
+    //notifications
+    private FirebaseCloudMessagingAPI mCloudMessagingAPI;
 
     public LoginInteractorClass() {
         mAuthentication = new Authentication();
         mDatabase = new RealtimeDatabase();
+        //notifications
+        mCloudMessagingAPI = FirebaseCloudMessagingAPI.getInstance();
     }
 
     @Override
@@ -47,6 +52,7 @@ public class LoginInteractorClass implements LoginInteractor {
                         }
                     }
                 });
+                mCloudMessagingAPI.subscribeToMyTopic(user.getEmail());
             }
 
             @Override

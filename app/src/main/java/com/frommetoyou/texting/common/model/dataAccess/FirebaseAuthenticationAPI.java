@@ -12,9 +12,7 @@ public class FirebaseAuthenticationAPI {
     }
 
     private static class SingletonHolder {
-
         private static final FirebaseAuthenticationAPI INSTANCE = new FirebaseAuthenticationAPI();
-
     }
 
     public static FirebaseAuthenticationAPI getInstance() {
