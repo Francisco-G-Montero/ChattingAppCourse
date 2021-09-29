@@ -41,7 +41,9 @@ public class RealtimeDatabase {
             mMessageEventListener = new ChildEventListener() {
                 @Override
                 public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                    listener.onMessageReceived(getMessage(snapshot));
+                    Message message = getMessage(snapshot);
+                    listener.onMessageReceived(message);
+                    if (!message.getSender().equals(myEmail)) updateMessageStatus(message, Message.SEEN, myEmail, friendEmail);
                 }
 
                 @Override
@@ -71,7 +73,6 @@ public class RealtimeDatabase {
         }
         mDatabaseAPI.getChatsMessagesReference(myEmail, friendEmail).addChildEventListener(mMessageEventListener);
     }
-
 
 
     public void unsubscribeToMessages(String myEmail, String friendEmail) {
@@ -161,29 +162,34 @@ public class RealtimeDatabase {
                 if (user == null) {
                     return Transaction.success(currentData);
                 }
-                user.setMessagesUnreaded(user.getMessagesUnreaded()+1);
+                user.setMessagesUnreaded(user.getMessagesUnreaded() + 1);
                 currentData.setValue(user);
                 return Transaction.success(currentData);
             }
 
             @Override
-            public void onComplete(@Nullable DatabaseError error, boolean committed, @Nullable DataSnapshot currentData) {  }
+            public void onComplete(@Nullable DatabaseError error, boolean committed, @Nullable DataSnapshot currentData) {
+            }
         });
     }
+
     /*
-    * send messages
-    * */
-    public void sendMessage(String newMessage, String photoUrl, String friendEmail, User myUser, SendMessageListener listener){
+     * send messages
+     * */
+    public void sendMessage(String newMessage, String photoUrl, String friendEmail, User myUser, SendMessageListener listener) {
         Message message = new Message();
         message.setSender(myUser.getEmail());
         message.setMessage(newMessage);
         message.setPhotoUrl(photoUrl);
         DatabaseReference chatReference = mDatabaseAPI.getChatsMessagesReference(myUser.getEmail(), friendEmail);
-        chatReference.push().setValue(message, new DatabaseReference.CompletionListener() {
+        message.setUid(chatReference.push().getKey());
+        chatReference.child(message.getUid()).setValue(message, new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
-                if (error == null)
+                if (error == null) {
                     listener.onSuccess();
+                    updateMessageStatus(message, Message.SENT, myUser.getEmail(), friendEmail);
+                }
             }
         });
     }
@@ -198,5 +204,12 @@ public class RealtimeDatabase {
             message.setUid(snapshot.getKey());
         }
         return message;
+    }
+
+    private void updateMessageStatus(Message message, int status, String myEmail, String friendEmail) {
+        DatabaseReference messageReference =  mDatabaseAPI.getChatsMessagesReference(myEmail, friendEmail).child(message.getUid());
+        HashMap<String, Object> update = new HashMap<>();
+        update.put(Message.PATH_STATUS, status);
+        messageReference.updateChildren(update);
     }
 }

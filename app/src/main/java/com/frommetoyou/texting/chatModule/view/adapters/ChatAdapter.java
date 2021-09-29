@@ -65,6 +65,13 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
             background = ContextCompat.getDrawable(mContext, R.drawable.background_chat_friend);
             marginEnd = maxMarginHorizontal;
             marginStart = minMargin;
+        }else {
+            if (message.getStatus() == Message.SENT)
+                holder.binding.tvMessage.setCompoundDrawablesWithIntrinsicBounds(0,0,R.drawable.ic_sent,0);
+            else if (message.getStatus() == Message.SEEN)
+                holder.binding.tvMessage.setCompoundDrawablesWithIntrinsicBounds(0,0,R.drawable.ic_seen,0);
+            else holder.binding.tvMessage.setCompoundDrawablesWithIntrinsicBounds(0,0,R.drawable.ic_sent,0);
+
         }
         if (position > 0 && message.isSentByMe() != mMessages.get(position - 1).isSentByMe()) {
             marginTop = maxMarginTop;
