@@ -3,9 +3,14 @@ package com.frommetoyou.texting.common.pojo;
 import com.google.firebase.database.Exclude;
 
 public class Message {
+    public final static String PATH_STATUS = "status";
+    public final static int SENT = 1;
+    public final static int SEEN = 2;
+
     private String message;
     private String sender;
     private String photoUrl;
+    private int status;
     @Exclude
     private boolean sentByMe;
     @Exclude
@@ -14,6 +19,14 @@ public class Message {
     private boolean loaded;
 
     public Message() {
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 
     public String getMessage() {
