@@ -17,9 +17,11 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:background="@color/primaryDarkColor"
             app:popupTheme="@style/Theme.Texting.PopupOverlay">
-            <include android:id="@+id/contentUser" layout="@layout/content_user"/>
+
+            <include android:id="@+id/contentUser" layout="@layout/content_user_chat"/>
+
         </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>

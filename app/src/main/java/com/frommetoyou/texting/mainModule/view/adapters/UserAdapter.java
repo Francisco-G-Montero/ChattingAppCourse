@@ -41,6 +41,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
         User user = mUsers.get(position);
         holder.setClickListener(user, mListener);
         holder.binding.content.tvName.setText(user.getUsernameValid());
+        holder.binding.content.tvLastMessage.setText(user.getLastMessage());
         int messageUnreaded = user.getMessagesUnreaded();
         if (messageUnreaded > 0) {
             String countStr = messageUnreaded > 99 ? mContext.getString(R.string.main_item_max_unreaded) : String.valueOf(messageUnreaded);

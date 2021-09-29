@@ -24,8 +24,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 public class RealtimeDatabase {
-    private static final String PATH_CHATS = "chats";
-    private static final String PATH_MESSAGES = "messages";
     private FirebaseRealtimeDatabaseAPI mDatabaseAPI;
     private ChildEventListener mMessageEventListener;
     private ValueEventListener mFriendProfileListener;
@@ -71,26 +69,14 @@ public class RealtimeDatabase {
                 }
             };
         }
-        getChatsMessagesReference(myEmail, friendEmail).addChildEventListener(mMessageEventListener);
+        mDatabaseAPI.getChatsMessagesReference(myEmail, friendEmail).addChildEventListener(mMessageEventListener);
     }
 
-    private DatabaseReference getChatsMessagesReference(String myEmail, String friendEmail) {
-        return getChatsReference(myEmail, friendEmail).child(PATH_MESSAGES);
-    }
 
-    private DatabaseReference getChatsReference(String myEmail, String friendEmail) {
-        String myEmailEncoded = UtilsCommon.getEmailEncoded(myEmail);
-        String friendEmailEncoded = UtilsCommon.getEmailEncoded(friendEmail);
-        String keyChat = myEmailEncoded + FirebaseRealtimeDatabaseAPI.SEPARATOR + friendEmailEncoded;
-        if (myEmailEncoded.compareTo(friendEmailEncoded) > 0) {
-            keyChat = friendEmailEncoded + FirebaseRealtimeDatabaseAPI.SEPARATOR + myEmailEncoded;
-        }
-        return mDatabaseAPI.getRootReference().child(PATH_CHATS).child(keyChat);
-    }
 
     public void unsubscribeToMessages(String myEmail, String friendEmail) {
         if (mMessageEventListener != null) {
-            getChatsMessagesReference(myEmail, friendEmail).removeEventListener(mMessageEventListener);
+            mDatabaseAPI.getChatsMessagesReference(myEmail, friendEmail).removeEventListener(mMessageEventListener);
         }
     }
 
@@ -192,7 +178,7 @@ public class RealtimeDatabase {
         message.setSender(myUser.getEmail());
         message.setMessage(newMessage);
         message.setPhotoUrl(photoUrl);
-        DatabaseReference chatReference = getChatsMessagesReference(myUser.getEmail(), friendEmail);
+        DatabaseReference chatReference = mDatabaseAPI.getChatsMessagesReference(myUser.getEmail(), friendEmail);
         chatReference.push().setValue(message, new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {

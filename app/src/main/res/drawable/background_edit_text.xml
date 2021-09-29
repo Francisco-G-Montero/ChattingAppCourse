@@ -8,6 +8,6 @@
 
     <shape android:shape="rectangle">
         <corners android:radius="@dimen/background_chat_radius" />
-        <solid android:color="@color/blue_100" />
+        <solid android:color="@color/colorBackgroundDark" />
     </shape>
 </inset>

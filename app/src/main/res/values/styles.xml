@@ -27,7 +27,10 @@
         <item name="colorControlHighlight">@color/blue_a200</item>
         <item name="android:windowBackground">@color/blue_50</item>
     </style>
-
+    <style name="MyAlertDialog" parent="ThemeOverlay.AppCompat.Dialog.Alert">
+        <item name="android:windowBackground">@color/primaryDarkColor</item>
+        <item name="colorPrimary">@color/secondaryDarkColor</item>
+    </style>
     <!-- DialogFragment -->
     <style name="DialogFragmentTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
         <!--buttons color-->

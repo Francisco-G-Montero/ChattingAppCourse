@@ -11,7 +11,8 @@
 
             <corners
                 android:topRightRadius="@dimen/common_padding_small"
-                android:bottomRightRadius="@dimen/common_padding_small"/>
+                android:bottomRightRadius="@dimen/common_padding_small"
+                android:bottomLeftRadius="@dimen/common_padding_small"/>
 
             <stroke
                 android:width="@dimen/common_border_img"
@@ -30,8 +31,8 @@
 
             <corners
                 android:topRightRadius="@dimen/common_padding_small"
-                android:bottomRightRadius="@dimen/common_padding_small"/>
-
+                android:bottomRightRadius="@dimen/common_padding_small"
+                android:bottomLeftRadius="@dimen/common_padding_small"/>
             <stroke
                 android:width="@dimen/common_border_img"
                 android:color="@color/deep_purple_300"/>

@@ -1,45 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/ivPhoto"
-        android:layout_width="@dimen/contact_image_size"
-        android:layout_height="@dimen/contact_image_size"
-        android:layout_marginStart="@dimen/margin_none"
-        android:layout_marginEnd="@dimen/activity_horizontal_margin"
-        android:src="@drawable/ic_emoticon_happy"
-        app:civ_border_color="@color/blue_a100"
-        app:civ_border_width="@dimen/common_border_img"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintStart_toEndOf="@+id/ivPhoto"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
-        <TextView
-            android:id="@+id/tvName"
-            style="@style/TextViewItemUser.Large"/>
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:cardCornerRadius="@dimen/margin_none">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/card_item_chat_height"
+        android:background="@color/colorBackground">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ivPhoto"
+            android:layout_width="@dimen/contact_image_size"
+            android:layout_height="@dimen/contact_image_size"
+            android:layout_marginStart="@dimen/common_padding_default"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:src="@drawable/ic_emoticon_happy"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
         <TextView
             android:id="@+id/tvStatus"
-            style="@style/TextViewItemUser.Small"
+            android:layout_width="4dp"
+            android:layout_height="4dp"
+            app:layout_constraintTop_toTopOf="@id/ivPhoto"
+            app:layout_constraintEnd_toEndOf="@id/ivPhoto"
             android:visibility="gone"/>
-    </LinearLayout>
-    <TextView
-        android:id="@+id/tvCountUnread"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@android:color/white"
-        android:gravity="center"
-        android:maxLength="@integer/maxLength_messages_unread"
-        android:background="@drawable/background_messages_unread"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/common_padding_default"
+            tools:text="Francisco Montero"
+            android:ellipsize="end"
+            app:layout_constraintTop_toTopOf="@id/ivPhoto"
+            app:layout_constraintStart_toEndOf="@+id/ivPhoto"
+            app:layout_constraintEnd_toStartOf="@+id/tvCountUnread"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" />
+        <TextView
+            android:id="@+id/tvLastMessage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/common_padding_default"
+            tools:text="Francisco Montero"
+            android:textColor="@color/gray_400"
+            app:layout_constraintTop_toBottomOf="@id/tvName"
+            app:layout_constraintStart_toEndOf="@+id/ivPhoto"
+            app:layout_constraintEnd_toStartOf="@+id/tvCountUnread"
+            android:ellipsize="end"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2" />
+        <TextView
+            android:id="@+id/tvCountUnread"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:layout_marginEnd="@dimen/common_padding_default"
+            android:gravity="center"
+            android:maxLength="@integer/maxLength_messages_unread"
+            android:background="@drawable/background_messages_unread"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

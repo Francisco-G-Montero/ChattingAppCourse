@@ -2,6 +2,7 @@ package com.frommetoyou.texting.common.model.dataAccess;
 
 import com.frommetoyou.texting.common.Constants;
 import com.frommetoyou.texting.common.pojo.User;
+import com.frommetoyou.texting.common.utils.UtilsCommon;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
@@ -15,6 +16,8 @@ public class FirebaseRealtimeDatabaseAPI {
     public static final String PATH_USERS = "users";
     public static final String PATH_CONTACTS = "contacts";
     public static final String PATH_REQUESTS = "requests";
+    private static final String PATH_CHATS = "chats";
+    private static final String PATH_MESSAGES = "messages";
 
     private DatabaseReference mDatabaseReference;
 
@@ -48,6 +51,20 @@ public class FirebaseRealtimeDatabaseAPI {
 
     public DatabaseReference getRequestsReference(String encodedEmail) {
         return getRootReference().child(PATH_REQUESTS).child(encodedEmail);
+    }
+
+    public DatabaseReference getChatsReference(String myEmail, String friendEmail) {
+        String myEmailEncoded = UtilsCommon.getEmailEncoded(myEmail);
+        String friendEmailEncoded = UtilsCommon.getEmailEncoded(friendEmail);
+        String keyChat = myEmailEncoded + FirebaseRealtimeDatabaseAPI.SEPARATOR + friendEmailEncoded;
+        if (myEmailEncoded.compareTo(friendEmailEncoded) > 0) {
+            keyChat = friendEmailEncoded + FirebaseRealtimeDatabaseAPI.SEPARATOR + myEmailEncoded;
+        }
+        return getRootReference().child(PATH_CHATS).child(keyChat);
+    }
+
+    public DatabaseReference getChatsMessagesReference(String myEmail, String friendEmail) {
+        return getChatsReference(myEmail, friendEmail).child(PATH_MESSAGES);
     }
 
     public void updateMyLastConnection(boolean online, String uid) {

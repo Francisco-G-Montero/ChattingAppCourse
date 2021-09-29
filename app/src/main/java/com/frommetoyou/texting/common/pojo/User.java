@@ -22,8 +22,18 @@ public class User {
     private String uid;
     @Exclude
     private Uri uriProfile;
+    @Exclude
+    private String lastMessage;
 
     public User() {
+    }
+
+    public String getLastMessage() {
+        return lastMessage;
+    }
+
+    public void setLastMessage(String lastMessage) {
+        this.lastMessage = lastMessage;
     }
 
     public String getLastConnectionWith() {

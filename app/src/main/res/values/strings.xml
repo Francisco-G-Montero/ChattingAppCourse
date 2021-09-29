@@ -33,7 +33,7 @@
 
     <string name="login_error_user_exist">Usuario nuevo, registrando&#8230;></string>
     <string name="login_message_loading">Iniciando sesión&#8230;</string>
-    <string name="login_message_starting">Preparando todo&#8230;</string>
+    <string name="login_message_starting">Iniciando&#8230;</string>
     <string name="login_message_error">Imposible iniciar sesión, intente más tarde.</string>
     <string name="login_message_success">Bienvenido %s</string>
 

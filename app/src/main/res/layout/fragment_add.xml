@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="@dimen/padding_dialog"
+    android:background="@color/primaryDarkColor"
     tools:context=".addModule.view.AddFragment">
 
     <com.google.android.material.textfield.TextInputLayout

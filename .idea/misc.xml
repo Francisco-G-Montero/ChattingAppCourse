@@ -8,14 +8,30 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android/Android projects/cursos/Udemy-Experto en Firebase/Texting/app/src/main/res/drawable/background_chat_friend.xml" value="0.221875" />
+        <entry key="..\:/Android/Android projects/cursos/Udemy-Experto en Firebase/Texting/app/src/main/res/drawable/background_chat_me.xml" value="0.221875" />
         <entry key="..\:/Android/Android projects/cursos/Udemy-Experto en Firebase/Texting/app/src/main/res/drawable/background_dialog.xml" value="0.3828125" />
+        <entry key="..\:/Android/Android projects/cursos/Udemy-Experto en Firebase/Texting/app/src/main/res/drawable/background_dialog_full_screen.xml" value="0.221875" />
+        <entry key="..\:/Android/Android projects/cursos/Udemy-Experto en Firebase/Texting/app/src/main/res/drawable/background_edit_text.xml" value="0.3828125" />
+        <entry key="..\:/Android/Android projects/cursos/Udemy-Experto en Firebase/Texting/app/src/main/res/drawable/background_messages_unread.xml" value="0.3828125" />
+        <entry key="..\:/Android/Android projects/cursos/Udemy-Experto en Firebase/Texting/app/src/main/res/drawable/chat_logo.xml" value="0.3828125" />
+        <entry key="..\:/Android/Android projects/cursos/Udemy-Experto en Firebase/Texting/app/src/main/res/drawable/ic_question_answer_black.xml" value="0.3828125" />
+        <entry key="..\:/Android/Android projects/cursos/Udemy-Experto en Firebase/Texting/app/src/main/res/layout/activity_chat.xml" value="0.5" />
         <entry key="..\:/Android/Android projects/cursos/Udemy-Experto en Firebase/Texting/app/src/main/res/layout/activity_login.xml" value="0.23777173913043478" />
         <entry key="..\:/Android/Android projects/cursos/Udemy-Experto en Firebase/Texting/app/src/main/res/layout/activity_main.xml" value="0.23777173913043478" />
         <entry key="..\:/Android/Android projects/cursos/Udemy-Experto en Firebase/Texting/app/src/main/res/layout/activity_profile.xml" value="0.23777173913043478" />
-        <entry key="..\:/Android/Android projects/cursos/Udemy-Experto en Firebase/Texting/app/src/main/res/layout/content_chat.xml" value="0.23777173913043478" />
-        <entry key="..\:/Android/Android projects/cursos/Udemy-Experto en Firebase/Texting/app/src/main/res/layout/content_user.xml" value="0.23777173913043478" />
+        <entry key="..\:/Android/Android projects/cursos/Udemy-Experto en Firebase/Texting/app/src/main/res/layout/content_chat.xml" value="0.33" />
+        <entry key="..\:/Android/Android projects/cursos/Udemy-Experto en Firebase/Texting/app/src/main/res/layout/content_main.xml" value="0.33" />
+        <entry key="..\:/Android/Android projects/cursos/Udemy-Experto en Firebase/Texting/app/src/main/res/layout/content_user.xml" value="0.648686030428769" />
+        <entry key="..\:/Android/Android projects/cursos/Udemy-Experto en Firebase/Texting/app/src/main/res/layout/content_user_chat.xml" value="0.5" />
         <entry key="..\:/Android/Android projects/cursos/Udemy-Experto en Firebase/Texting/app/src/main/res/layout/dialog_about.xml" value="0.20572916666666666" />
         <entry key="..\:/Android/Android projects/cursos/Udemy-Experto en Firebase/Texting/app/src/main/res/layout/dialog_image_upload_preview.xml" value="0.23777173913043478" />
+        <entry key="..\:/Android/Android projects/cursos/Udemy-Experto en Firebase/Texting/app/src/main/res/layout/fragment_add.xml" value="0.20572916666666666" />
+        <entry key="..\:/Android/Android projects/cursos/Udemy-Experto en Firebase/Texting/app/src/main/res/layout/item_chat.xml" value="0.20572916666666666" />
+        <entry key="..\:/Android/Android projects/cursos/Udemy-Experto en Firebase/Texting/app/src/main/res/layout/item_request.xml" value="0.33" />
+        <entry key="..\:/Android/Android projects/cursos/Udemy-Experto en Firebase/Texting/app/src/main/res/layout/item_user.xml" value="0.20572916666666666" />
+        <entry key="..\:/Android/Android projects/cursos/Udemy-Experto en Firebase/Texting/app/src/main/res/layout/item_user_alter.xml" value="0.33" />
+        <entry key="..\:/Android/Android projects/cursos/Udemy-Experto en Firebase/Texting/app/src/main/res/menu/menu_main.xml" value="0.20572916666666666" />
       </map>
     </option>
   </component>
