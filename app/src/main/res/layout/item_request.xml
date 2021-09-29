@@ -9,20 +9,21 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:app="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="@dimen/card_item_chat_height"
+        android:background="@color/colorBackground">
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/ivPhoto"
             android:layout_width="@dimen/contact_image_size"
             android:layout_height="@dimen/contact_image_size"
-            android:layout_marginStart="@dimen/margin_none"
+            android:layout_marginStart="@dimen/common_padding_default"
             android:layout_marginEnd="@dimen/activity_horizontal_margin"
             android:src="@drawable/ic_emoticon_happy"
             app:civ_border_color="@color/blue_a100"
             app:civ_border_width="@dimen/profile_border_img"
             app:civ_fill_color="@color/cWhite"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent"
+            card_view:layout_constraintBottom_toBottomOf="parent"/>
         <ImageView
             android:id="@+id/btnDeny"
             android:layout_width="wrap_content"
@@ -30,6 +31,7 @@
             android:src="@drawable/ic_remove_circle"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:padding="@dimen/padding_item_button"
+            android:layout_marginEnd="@dimen/common_padding_default"
             android:tint="@color/red_200"
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintTop_toTopOf="parent"

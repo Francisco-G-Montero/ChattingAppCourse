@@ -83,4 +83,9 @@
     <string name="main_tutorial_fabAdd">main_fabAdd_v01</string>
     <string name="addFriend_error_doesnt_exists">No existe ningún usuario con este email</string>
     <string name="addFriend_message_request_exists">La solicitud ya habia sido enviada.</string>
+    <string name="person_add">Añadir amigo</string>
+    <string name="group_create">Crear grupo</string>
+    <string name="createGroup_title">Crear grupo</string>
+    <string name="group_title">Título de grupo</string>
+    <string name="add_friends">Añadir amigos</string>
 </resources>

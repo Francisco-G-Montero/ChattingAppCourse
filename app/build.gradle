@@ -10,7 +10,7 @@ android {
         applicationId "com.frommetoyou.texting"
         minSdkVersion 23
         targetSdkVersion 30
-        versionCode 4
+        versionCode 5
         versionName "1.1"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -61,5 +61,7 @@ dependencies {
     implementation "com.google.code.gson:gson:${gsonVersion}"
     implementation "com.android.volley:volley:${volley}"
     implementation "com.github.deano2390:MaterialShowcaseView:${materialShowcaseView}"
+    implementation "com.leinardi.android:speed-dial:3.2.0"
+
 
 }

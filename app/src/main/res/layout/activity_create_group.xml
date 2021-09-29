@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primaryDarkColor"
+    tools:context=".createGroupModule.view.CreateGroupActivity">
+
+    <TextView
+        android:id="@+id/tvGroupTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/group_title"
+        android:layout_marginTop="@dimen/common_padding_default"
+        android:layout_marginStart="@dimen/common_padding_default"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilGroupTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_padding_default"
+        android:hint="@string/group_title"
+        app:helperText="Requerido"
+        app:helperTextTextColor="@color/white"
+        android:textColorHint="@color/white"
+        app:endIconMode="clear_text"
+        android:layout_marginHorizontal="@dimen/common_padding_default"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvGroupTitle"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etGroupTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tvAddFriendsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_friends"
+        android:layout_marginTop="@dimen/common_padding_default"
+        android:layout_marginStart="@dimen/common_padding_default"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tilGroupTitle"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

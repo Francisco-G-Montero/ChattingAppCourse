@@ -1,7 +1,6 @@
 package com.frommetoyou.texting.mainModule.view;
 
 import android.app.ActivityOptions;
-import android.app.AlertDialog;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -14,6 +13,7 @@ import com.frommetoyou.texting.addModule.view.AddFragment;
 import com.frommetoyou.texting.chatModule.view.ChatActivity;
 import com.frommetoyou.texting.common.pojo.User;
 import com.frommetoyou.texting.common.utils.UtilsCommon;
+import com.frommetoyou.texting.createGroupModule.view.CreateGroupActivity;
 import com.frommetoyou.texting.databinding.ActivityMainBinding;
 import com.frommetoyou.texting.loginModule.view.LoginActivity;
 import com.frommetoyou.texting.mainModule.MainPresenter;
@@ -39,12 +39,13 @@ import com.frommetoyou.texting.R;
 import com.frommetoyou.texting.profileModule.view.ProfileActivity;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.snackbar.Snackbar;
+import com.leinardi.android.speeddial.SpeedDialActionItem;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements OnItemUserClickListener, MainView, View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements OnItemUserClickListener, MainView {
     private static final int RC_PROFILE = 23;
-    private ActivityMainBinding binding;
+    private ActivityMainBinding mBinding;
     private UserAdapter mUserAdapter;
     private RequestAdapter mRequestAdapter;
     private User mUser;
@@ -53,21 +54,41 @@ public class MainActivity extends AppCompatActivity implements OnItemUserClickLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        mBinding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(mBinding.getRoot());
         mPresenter = new MainPresenterClass(this);
         mPresenter.onCreate();
         mUser = mPresenter.getCurrentUser();
-        binding.fab.setOnClickListener(this);
         configToolbar();
+        configFab();
         configAdapters();
         configRecyclerView();
         configTutorial();
     }
 
+    private void configFab() {
+        mBinding.fab.addActionItem(
+                new SpeedDialActionItem.Builder(R.id.person_add, R.drawable.ic_person_add)
+                        .setLabel(getResources().getString(R.string.person_add))
+                        .create()
+        );
+        mBinding.fab.addActionItem(
+                new SpeedDialActionItem.Builder(R.id.group_create, R.drawable.ic_group)
+                        .setLabel(getResources().getString(R.string.group_create))
+                        .create()
+        );
+        mBinding.fab.setOnActionSelectedListener(actionItem -> {
+            if (actionItem.getId() == R.id.person_add)
+                new AddFragment().show(getSupportFragmentManager(), getString(R.string.addFriend_title));
+            else if (actionItem.getId() == R.id.group_create)
+                startActivity(new Intent(this, CreateGroupActivity.class));
+            return false;
+        });
+    }
+
     private void configTutorial() {
         new MaterialShowcaseView.Builder(this)
-                .setTarget(binding.fab)
+                .setTarget(mBinding.fab)
                 .setTargetTouchable(true)
                 .setTitleText(R.string.app_name)
                 .setTitleTextColor(R.color.colorAccent)
@@ -113,9 +134,9 @@ public class MainActivity extends AppCompatActivity implements OnItemUserClickLi
     }
 
     private void configToolbar() {
-        binding.toolbar.setTitle(mUser.getUsernameValid());
-        UtilsCommon.loadImage(this, mUser.getPhotoUrl(), binding.ivProfile);
-        setSupportActionBar(binding.toolbar);
+        mBinding.toolbar.setTitle(mUser.getUsernameValid());
+        UtilsCommon.loadImage(this, mUser.getPhotoUrl(), mBinding.ivProfile);
+        setSupportActionBar(mBinding.toolbar);
     }
 
     private void configAdapters() {
@@ -125,10 +146,10 @@ public class MainActivity extends AppCompatActivity implements OnItemUserClickLi
     }
 
     private void configRecyclerView() {
-        binding.contentMain.rvUser.setLayoutManager(new LinearLayoutManager(this));
-        binding.contentMain.rvUser.setAdapter(mUserAdapter);
-        binding.contentMain.rvRequests.setLayoutManager(new LinearLayoutManager(this));
-        binding.contentMain.rvRequests.setAdapter(mRequestAdapter);
+        mBinding.contentMain.rvUser.setLayoutManager(new LinearLayoutManager(this));
+        mBinding.contentMain.rvUser.setAdapter(mUserAdapter);
+        mBinding.contentMain.rvRequests.setLayoutManager(new LinearLayoutManager(this));
+        mBinding.contentMain.rvRequests.setAdapter(mRequestAdapter);
     }
 
     @Override
@@ -198,17 +219,6 @@ public class MainActivity extends AppCompatActivity implements OnItemUserClickLi
                     }
                 });
         builder.show();
-    }
-
-    /*
-     * View.OnClickListener
-     * */
-    @Override
-    public void onClick(View v) {
-        if (v == binding.fab) {
-            new AddFragment().show(getSupportFragmentManager(), getString(R.string.addFriend_title));
-
-        }
     }
 
     /*
@@ -285,22 +295,22 @@ public class MainActivity extends AppCompatActivity implements OnItemUserClickLi
 
     @Override
     public void showRequestAccepted(String username) {
-        Snackbar.make(binding.getRoot(), getString(R.string.main_message_request_accepted, username), Snackbar.LENGTH_SHORT).show();
+        Snackbar.make(mBinding.getRoot(), getString(R.string.main_message_request_accepted, username), Snackbar.LENGTH_SHORT).show();
     }
 
     @Override
     public void showRequestDenied() {
-        Snackbar.make(binding.getRoot(), R.string.main_message_request_denied, Snackbar.LENGTH_SHORT).show();
+        Snackbar.make(mBinding.getRoot(), R.string.main_message_request_denied, Snackbar.LENGTH_SHORT).show();
     }
 
     @Override
     public void showFriendRemove() {
-        Snackbar.make(binding.getRoot(), R.string.main_message_user_removed, Snackbar.LENGTH_LONG).show();
+        Snackbar.make(mBinding.getRoot(), R.string.main_message_user_removed, Snackbar.LENGTH_LONG).show();
     }
 
     @Override
     public void showError(int resMessage) {
-        Snackbar.make(binding.getRoot(), resMessage, Snackbar.LENGTH_LONG).show();
+        Snackbar.make(mBinding.getRoot(), resMessage, Snackbar.LENGTH_LONG).show();
 
     }
 }
