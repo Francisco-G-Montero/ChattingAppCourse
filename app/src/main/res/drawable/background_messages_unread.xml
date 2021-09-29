@@ -4,7 +4,7 @@
         <shape
             android:shape="oval">
 
-            <solid android:color="@color/colorPrimary"/>
+            <solid android:color="@color/secondaryDarkColor"/>
 
             <size android:height="@dimen/common_notify_size"
                 android:width="@dimen/common_notify_size"/>

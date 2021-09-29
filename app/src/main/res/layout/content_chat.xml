@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/colorBackground"
+    android:background="@drawable/wsp_background"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
     <ImageButton
         android:id="@+id/btnSendMessage"
@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:paddingStart="@dimen/margin_none"
         android:paddingEnd="@dimen/margin_horizontal_chat"
-        android:tint="@color/green_800"
+        android:tint="@color/secondaryColor"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:src="@android:drawable/ic_menu_send"
         android:contentDescription="@string/description_img_sendMessage"
@@ -36,6 +36,7 @@
             android:id="@+id/btnGallery"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/common_padding_small"
             android:padding="@dimen/common_padding_small"
             android:src="@android:drawable/ic_menu_gallery"
             android:contentDescription="@string/description_img_gallery"

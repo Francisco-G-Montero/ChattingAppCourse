@@ -4,13 +4,16 @@ import android.util.Log;
 
 import com.frommetoyou.texting.R;
 import com.frommetoyou.texting.common.model.BasicEventCallback;
+import com.frommetoyou.texting.common.model.dataAccess.FirebaseAuthenticationAPI;
 import com.frommetoyou.texting.common.model.dataAccess.FirebaseRealtimeDatabaseAPI;
+import com.frommetoyou.texting.common.pojo.Message;
 import com.frommetoyou.texting.common.pojo.User;
 import com.frommetoyou.texting.common.utils.UtilsCommon;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -20,11 +23,13 @@ import androidx.annotation.Nullable;
 
 public class RealtimeDatabase {
     private FirebaseRealtimeDatabaseAPI mDatabaseAPI;
+    private FirebaseAuthenticationAPI mAuthenticationAPI;
     private ChildEventListener mUserEventListener;
     private ChildEventListener mRequestEventListener;
 
     public RealtimeDatabase() {
         mDatabaseAPI = FirebaseRealtimeDatabaseAPI.getInstance();
+        mAuthenticationAPI = FirebaseAuthenticationAPI.getInstance();
     }
 
     /*
@@ -47,17 +52,17 @@ public class RealtimeDatabase {
             mUserEventListener = new ChildEventListener() {
                 @Override
                 public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                    listener.onUserAdded(getUser(snapshot));
+                    getUser(snapshot, listener::onUserAdded);
                 }
 
                 @Override
                 public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                    listener.onUserUpdated(getUser(snapshot));
+                    getUser(snapshot, user -> listener.onUserUpdated(user));
                 }
 
                 @Override
                 public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-                    listener.onUserRemoved(getUser(snapshot));
+                    getUser(snapshot, user -> listener.onUserRemoved(user));
                 }
 
                 @Override
@@ -80,11 +85,34 @@ public class RealtimeDatabase {
         mDatabaseAPI.getContactsReference(myUid).addChildEventListener(mUserEventListener);
     }
 
-    private User getUser(DataSnapshot snapshot) {
+    private User getUser(DataSnapshot snapshot, final GetUserEventListener listener) {
         User user = snapshot.getValue(User.class);
-
-        if (user != null)
+        if (user != null) {
             user.setUid(snapshot.getKey());
+            mDatabaseAPI.getChatsMessagesReference(mAuthenticationAPI.getAuthUser().getEmail(), user.getEmail())
+                    .limitToLast(1)
+                    .addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            if (snapshot.exists()){
+                                String lastMessage = "";
+                                Message message = new Message();
+                                for (DataSnapshot dataSnapshot : snapshot.getChildren())
+                                 message = dataSnapshot.getValue(Message.class);
+                                if ( message.getPhotoUrl() != null)
+                                    lastMessage = "Foto \uD83D\uDCF7";
+                                else lastMessage = message.getMessage();
+                                user.setLastMessage(lastMessage);
+                            }
+                            listener.onGetUser(user);
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+                            //TODO
+                        }
+                    });
+        }
         return user;
     }
 
@@ -93,17 +121,17 @@ public class RealtimeDatabase {
             mRequestEventListener = new ChildEventListener() {
                 @Override
                 public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                    listener.onUserAdded(getUser(snapshot));
+                    getUser(snapshot, user -> listener.onUserAdded(user));
                 }
 
                 @Override
                 public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                    listener.onUserUpdated(getUser(snapshot));
+                   getUser(snapshot, user -> listener.onUserUpdated(user));
                 }
 
                 @Override
                 public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-                    listener.onUserRemoved(getUser(snapshot));
+                    getUser(snapshot, user -> listener.onUserRemoved(user));
                 }
 
                 @Override
@@ -161,16 +189,16 @@ public class RealtimeDatabase {
 
         final String myEmailEncoded = UtilsCommon.getEmailEncoded(myUser.getEmail());
         Map<String, Object> acceptRequest = new HashMap<>();
-        acceptRequest.put(FirebaseRealtimeDatabaseAPI.PATH_USERS+"/"+user.getUid()+"/"+
-                FirebaseRealtimeDatabaseAPI.PATH_CONTACTS+"/"+myUser.getUid(),myUserMap);
-        acceptRequest.put(FirebaseRealtimeDatabaseAPI.PATH_USERS+"/"+myUser.getUid()+"/"+
-                FirebaseRealtimeDatabaseAPI.PATH_CONTACTS+"/"+user.getUid(),userRequestMap);
-        acceptRequest.put(FirebaseRealtimeDatabaseAPI.PATH_REQUESTS+"/"+myEmailEncoded+"/"+user.getUid(),null);
+        acceptRequest.put(FirebaseRealtimeDatabaseAPI.PATH_USERS + "/" + user.getUid() + "/" +
+                FirebaseRealtimeDatabaseAPI.PATH_CONTACTS + "/" + myUser.getUid(), myUserMap);
+        acceptRequest.put(FirebaseRealtimeDatabaseAPI.PATH_USERS + "/" + myUser.getUid() + "/" +
+                FirebaseRealtimeDatabaseAPI.PATH_CONTACTS + "/" + user.getUid(), userRequestMap);
+        acceptRequest.put(FirebaseRealtimeDatabaseAPI.PATH_REQUESTS + "/" + myEmailEncoded + "/" + user.getUid(), null);
 
         mDatabaseAPI.getRootReference().updateChildren(acceptRequest, new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
-                if (error==null)
+                if (error == null)
                     callback.onSuccess();
                 else
                     callback.onError();
@@ -178,13 +206,13 @@ public class RealtimeDatabase {
         });
     }
 
-    public void denyRequest(User user, String myEmail, final BasicEventCallback callback){
+    public void denyRequest(User user, String myEmail, final BasicEventCallback callback) {
         final String myEmailEncoded = UtilsCommon.getEmailEncoded(myEmail);
         mDatabaseAPI.getRequestsReference(myEmailEncoded).child(user.getUid()).removeValue(
                 new DatabaseReference.CompletionListener() {
                     @Override
                     public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
-                        if (error==null)
+                        if (error == null)
                             callback.onSuccess();
                         else
                             callback.onError();

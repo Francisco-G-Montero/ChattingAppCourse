@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardUseCompatPadding="true"
-    app:cardCornerRadius="@dimen/padding_item_content">
+    android:layout_height="wrap_content">
     <include android:id="@+id/content" layout="@layout/content_user"/>
-</com.google.android.material.card.MaterialCardView>
+</LinearLayout>

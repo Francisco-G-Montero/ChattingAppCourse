@@ -49,4 +49,7 @@
     <dimen name="request_max_height">180dp</dimen>
     <dimen name="background_chat_radius">24dp</dimen>
     <dimen name="common_padding_etMessage">12dp</dimen>
+    <dimen name="common_padding_default">16dp</dimen>
+    <dimen name="card_item_chat_height">72dp</dimen>
+    <dimen name="contact_image_size_chat">38dp</dimen>
 </resources>

@@ -17,7 +17,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:background="@color/primaryDarkColor"
             app:popupTheme="@style/Theme.Texting.PopupOverlay">
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/ivProfile"
